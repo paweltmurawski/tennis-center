@@ -18,14 +18,14 @@ import static org.junit.Assert.assertNull;
 @SpringBootTest
 public class TennisProductRepositoryTestSuite {
     @Autowired
-    private TennisProductRepository tennisProductRepository;
+    private TennisProductsRepository tennisProductRepository;
     private static final String DESCRIPTION = "Tennis product description";
 
     @Test
     @DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
     public void testCreateTennisProductRepository() {
         //Given
-        TennisProducts tennisProducts = new TennisProducts(1, "Babolat racket", DESCRIPTION, new BigDecimal(650), new ArrayList<>());
+        TennisProducts tennisProducts = new TennisProducts(1, "Babolat racket", DESCRIPTION, new BigDecimal(650), new ArrayList<>(), new ArrayList<>());
 
         //When
         tennisProductRepository.save(tennisProducts);
@@ -39,7 +39,7 @@ public class TennisProductRepositoryTestSuite {
     @DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
     public void testReadTennisProductRepository() {
         //Given
-        TennisProducts tennisProducts = new TennisProducts(1, "Babolat racket", DESCRIPTION, new BigDecimal(650), new ArrayList<>());
+        TennisProducts tennisProducts = new TennisProducts(1, "Babolat racket", DESCRIPTION, new BigDecimal(650), new ArrayList<>(), new ArrayList<>());
 
         //When
         tennisProductRepository.save(tennisProducts);
@@ -53,28 +53,28 @@ public class TennisProductRepositoryTestSuite {
     @DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
     public void testUpdateTennisProductRepository() {
         //Given
-        TennisProducts tennisProducts = new TennisProducts(1, "Babolat racket", DESCRIPTION, new BigDecimal(650), new ArrayList<>());
+        TennisProducts tennisProducts = new TennisProducts(1, "Babolat racket", DESCRIPTION, new BigDecimal(650), new ArrayList<>(), new ArrayList<>());
         tennisProductRepository.save(tennisProducts);
 
         //When
-        TennisProducts updatedPrice =  new TennisProducts(1, "Babolat racket", DESCRIPTION, new BigDecimal(550), new ArrayList<>());
+        TennisProducts updatedPrice =  new TennisProducts(1, "Babolat racket", DESCRIPTION, new BigDecimal(550), new ArrayList<>(), new ArrayList<>());
         tennisProductRepository.save(updatedPrice);
-        TennisProducts updateTennisProducts = tennisProductRepository.findById(1).orElse(null);
+        TennisProducts updatedTennisProducts = tennisProductRepository.findById(1).orElse(null);
 
         //Then
-        assertEquals(updatedPrice, updateTennisProducts);
+        assertEquals(updatedPrice, updatedTennisProducts);
     }
 
     @Test
     @DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
     public void testDeleteTennisProductRepository() {
         //Given
-        TennisProducts tennisProducts = new TennisProducts(1, "Babolat racket", DESCRIPTION, new BigDecimal(650), new ArrayList<>());
+        TennisProducts tennisProducts = new TennisProducts(1, "Babolat racket", DESCRIPTION, new BigDecimal(650), new ArrayList<>(), new ArrayList<>());
         tennisProductRepository.save(tennisProducts);
 
         //When
         tennisProductRepository.deleteById(1);
-        TennisProducts deletedTennisProductRepository = tennisProductRepository.findById(1).orElse(null)
+        TennisProducts deletedTennisProductRepository = tennisProductRepository.findById(1).orElse(null);
 
         //Then
         assertNull(deletedTennisProductRepository);

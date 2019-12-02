@@ -17,6 +17,7 @@ public class TennisCenterUsers {
     private String username;
     private String email;
     private String address;
+    private String phoneNumber;
     private List<UsersOrders> usersOrders = new ArrayList<>();
 
     @Id
@@ -58,7 +59,21 @@ public class TennisCenterUsers {
         this.address = address;
     }
 
+    @Column(name = "PHONE_NUMBER")
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    @OneToMany(
+            targetEntity = UsersOrders.class,
+            mappedBy = "tennisCenterUsers",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
     public List<UsersOrders> getUsersOrders() {
         return usersOrders;
     }

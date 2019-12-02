@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 @Transactional
 @Repository
-public interface TennisProductRepository extends CrudRepository<TennisProducts, Integer> {
+public interface TennisProductsRepository extends CrudRepository<TennisProducts, Integer> {
     ArrayList<TennisProducts> findAll();
 
 }

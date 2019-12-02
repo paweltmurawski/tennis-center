@@ -18,6 +18,7 @@ public class TennisProducts {
     private String productName;
     private String description;
     private BigDecimal productPrice;
+    private List<UsersOrders> usersOrders = new ArrayList<>();
     private List<Cart> carts = new ArrayList<>();
 
     @Id
@@ -59,6 +60,21 @@ public class TennisProducts {
         this.productPrice = productPrice;
     }
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "JOIN_ORDERS_PRODUCTS",
+            joinColumns = {@JoinColumn(name = "TENNIS_PRODUCT_ID", referencedColumnName = "TENNIS_PRODUCT_ID")},
+            inverseJoinColumns = {@JoinColumn(name = "USERS_ORDERS_ID", referencedColumnName = "USERS_ORDER_ID")}
+    )
+    public List<UsersOrders> getUsersOrders() {
+        return usersOrders;
+    }
+
+    public void setUsersOrders(List<UsersOrders> usersOrders) {
+        this.usersOrders = usersOrders;
+    }
+
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "tennisProducts")
     public List<Cart> getCarts() {
         return carts;
     }
