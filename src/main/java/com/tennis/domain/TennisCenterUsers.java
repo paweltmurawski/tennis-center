@@ -13,7 +13,7 @@ import java.util.List;
 @Entity
 @Table(name = "TENNIS_CENTER_USERS")
 public class TennisCenterUsers {
-    private int id;
+    private Long id;
     private String username;
     private String email;
     private String address;
@@ -21,14 +21,14 @@ public class TennisCenterUsers {
     private List<UsersOrders> usersOrders = new ArrayList<>();
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @NotNull
     @Column(name = "ID", unique = true)
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

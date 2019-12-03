@@ -9,6 +9,7 @@ import java.util.List;
 
 @Transactional
 @Repository
-public interface TennisCenterUsersRepository extends CrudRepository<TennisCenterUsers, Integer> {
+public interface TennisCenterUsersRepository extends CrudRepository<TennisCenterUsers, Long> {
+    @Override
     List<TennisCenterUsers> findAll();
 }

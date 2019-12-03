@@ -14,7 +14,7 @@ import java.util.List;
 @Entity
 @Table(name= "TENNIS_PRODUCTS")
 public class TennisProducts {
-    private int id;
+    private Long id;
     private String productName;
     private String description;
     private BigDecimal productPrice;
@@ -22,19 +22,19 @@ public class TennisProducts {
     private List<Cart> carts = new ArrayList<>();
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @NotNull
     @Column(name = "ID", unique = true)
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
     @Column(name = "PRODUCT_NAME")
-    public String getTennisProduct() {
+    public String getProductName() {
         return productName;
     }
 

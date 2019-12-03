@@ -14,20 +14,20 @@ import java.util.List;
 @Entity
 @Table(name= "USERS_ORDERS")
 public class UsersOrders {
-    private int id;
+    private Long id;
     private LocalDate orderDate;
     private List<TennisProducts> tennisProducts = new ArrayList<>();
     private TennisCenterUsers tennisCenterUsers;
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @NotNull
     @Column(name = "ID", unique = true)
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

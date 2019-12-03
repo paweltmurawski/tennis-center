@@ -23,7 +23,7 @@ public class TennisCenterUsersRepositoryTestSuite {
     @DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
     public void testCreateTennisCenterUsersRepository() {
         //Given
-        TennisCenterUsers tennisCenterUsers = new TennisCenterUsers(1, "Paul M", "testEmail@gmail.com", "Warszawska 4", "123456789", new ArrayList<>());
+        TennisCenterUsers tennisCenterUsers = new TennisCenterUsers(1L, "Paul M", "testEmail@gmail.com", "Warszawska 4", "123456789", new ArrayList<>());
 
         //When
         tennisCenterUsersRepository.save(tennisCenterUsers);
@@ -37,11 +37,11 @@ public class TennisCenterUsersRepositoryTestSuite {
     @DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
     public void testReadTennisCenterUsersRepository() {
         //Given
-        TennisCenterUsers tennisCenterUsers = new TennisCenterUsers(1, "Paul M", "testEmail@gmail.com", "Warszawska 4", "123456789", new ArrayList<>());
+        TennisCenterUsers tennisCenterUsers = new TennisCenterUsers(1L, "Paul M", "testEmail@gmail.com", "Warszawska 4", "123456789", new ArrayList<>());
 
         //When
         tennisCenterUsersRepository.save(tennisCenterUsers);
-        TennisCenterUsers readTennisCenterUsers = tennisCenterUsersRepository.findById(1).orElse(null);
+        TennisCenterUsers readTennisCenterUsers = tennisCenterUsersRepository.findById(1L).orElse(null);
 
         //Then
         assertEquals(tennisCenterUsers, readTennisCenterUsers);
@@ -51,13 +51,13 @@ public class TennisCenterUsersRepositoryTestSuite {
     @DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
     public void testUpdateTennisCenterUsersRepository() {
         //Given
-        TennisCenterUsers tennisCenterUsers = new TennisCenterUsers(1, "Paul M", "testEmail@gmail.com", "Warszawska 4", "123456789", new ArrayList<>());
+        TennisCenterUsers tennisCenterUsers = new TennisCenterUsers(1L, "Paul M", "testEmail@gmail.com", "Warszawska 4", "123456789", new ArrayList<>());
         tennisCenterUsersRepository.save(tennisCenterUsers);
 
         //When
-        TennisCenterUsers updatedAddress = new TennisCenterUsers(1, "Paul M", "testEmail@gmail.com", "Smocza 6", "123456789", new ArrayList<>());
+        TennisCenterUsers updatedAddress = new TennisCenterUsers(1L, "Paul M", "testEmail@gmail.com", "Smocza 6", "123456789", new ArrayList<>());
         tennisCenterUsersRepository.save(updatedAddress);
-        TennisCenterUsers updatedTennisCenterUsers = tennisCenterUsersRepository.findById(1).orElse(null);
+        TennisCenterUsers updatedTennisCenterUsers = tennisCenterUsersRepository.findById(1L).orElse(null);
 
         //Then
         assertEquals(updatedAddress, updatedTennisCenterUsers);
@@ -67,15 +67,14 @@ public class TennisCenterUsersRepositoryTestSuite {
     @DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
     public void testDeleteTennisCenterUsersRepository() {
         //Given
-        TennisCenterUsers tennisCenterUsers = new TennisCenterUsers(1, "Paul M", "testEmail@gmail.com", "Warszawska 4", "123456789", new ArrayList<>());
+        TennisCenterUsers tennisCenterUsers = new TennisCenterUsers(1L, "Paul M", "testEmail@gmail.com", "Warszawska 4", "123456789", new ArrayList<>());
         tennisCenterUsersRepository.save(tennisCenterUsers);
 
         //When
-        tennisCenterUsersRepository.deleteById(1);
-        TennisCenterUsers deletedTennisCenterUsers = tennisCenterUsersRepository.findById(1).orElse(null);
+        tennisCenterUsersRepository.deleteById(1L);
+        TennisCenterUsers deletedTennisCenterUsers = tennisCenterUsersRepository.findById(1L).orElse(null);
 
         //Then
         assertNull(deletedTennisCenterUsers);
-
     }
 }

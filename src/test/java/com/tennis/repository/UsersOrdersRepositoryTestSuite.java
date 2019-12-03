@@ -25,7 +25,7 @@ public class UsersOrdersRepositoryTestSuite {
     @DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
     public void testCreateUsersOrdersRepository() {
         //Given
-        UsersOrders usersOrders = new UsersOrders(1, LocalDate.of(2019, 12, 2), new ArrayList<>(), new TennisCenterUsers(1, "Paul M", "testemail@gmail.com", "Polna 3", "123456789", new ArrayList<>()));
+        UsersOrders usersOrders = new UsersOrders(1L, LocalDate.of(2019, 12, 2), new ArrayList<>(), new TennisCenterUsers(1L, "Paul M", "testemail@gmail.com", "Polna 3", "123456789", new ArrayList<>()));
 
         //When
         usersOrdersRepository.save(usersOrders);
@@ -39,11 +39,11 @@ public class UsersOrdersRepositoryTestSuite {
     @DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
     public void testReadUsersOrdersRepository() {
         //Given
-        UsersOrders usersOrders = new UsersOrders(1, LocalDate.of(2019, 12, 2), new ArrayList<>(), new TennisCenterUsers(1, "Paul M", "testemail@gmail.com", "Polna 3", "123456789", new ArrayList<>()));
+        UsersOrders usersOrders = new UsersOrders(1L, LocalDate.of(2019, 12, 2), new ArrayList<>(), new TennisCenterUsers(1L, "Paul M", "testemail@gmail.com", "Polna 3", "123456789", new ArrayList<>()));
 
         //When
         usersOrdersRepository.save(usersOrders);
-        UsersOrders readUsersOrders = usersOrdersRepository.findById(1).orElse(null);
+        UsersOrders readUsersOrders = usersOrdersRepository.findById(1L).orElse(null);
 
         //Then
         assertEquals(usersOrders, readUsersOrders);
@@ -53,13 +53,13 @@ public class UsersOrdersRepositoryTestSuite {
     @DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
     public void testUpdateUsersOrdersRepository() {
         //Given
-        UsersOrders usersOrders = new UsersOrders(1, LocalDate.of(2019, 11, 2), new ArrayList<>(), new TennisCenterUsers(1, "Paul M", "testemail@gmail.com", "Polna 3", "123456789", new ArrayList<>()));
+        UsersOrders usersOrders = new UsersOrders(1L, LocalDate.of(2019, 11, 2), new ArrayList<>(), new TennisCenterUsers(1L, "Paul M", "testemail@gmail.com", "Polna 3", "123456789", new ArrayList<>()));
         usersOrdersRepository.save(usersOrders);
 
         //When
-        UsersOrders updatedDate = new UsersOrders(1, LocalDate.of(2019, 12, 2), new ArrayList<>(), new TennisCenterUsers(1, "Paul M", "testemail@gmail.com", "Polna 3", "123456789", new ArrayList<>()));
+        UsersOrders updatedDate = new UsersOrders(1L, LocalDate.of(2019, 12, 2), new ArrayList<>(), new TennisCenterUsers(1L, "Paul M", "testemail@gmail.com", "Polna 3", "123456789", new ArrayList<>()));
         usersOrdersRepository.save(updatedDate);
-        UsersOrders updatedUsersOrders = usersOrdersRepository.findById(1).orElse(null);
+        UsersOrders updatedUsersOrders = usersOrdersRepository.findById(1L).orElse(null);
 
         //Then
         assertEquals(updatedDate, updatedUsersOrders);
@@ -69,12 +69,12 @@ public class UsersOrdersRepositoryTestSuite {
     @DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
     public void testDeleteUsersOrdersRepository() {
         //Given
-        UsersOrders usersOrders = new UsersOrders(1, LocalDate.of(2019, 12, 2), new ArrayList<>(), new TennisCenterUsers(1, "Paul M", "testemail@gmail.com", "Polna 3", "123456789", new ArrayList<>()));
+        UsersOrders usersOrders = new UsersOrders(1L, LocalDate.of(2019, 12, 2), new ArrayList<>(), new TennisCenterUsers(1L, "Paul M", "testemail@gmail.com", "Polna 3", "123456789", new ArrayList<>()));
         usersOrdersRepository.save(usersOrders);
 
         //When
-        usersOrdersRepository.deleteById(1);
-        UsersOrders deletedUsersOrders = usersOrdersRepository.findById(1).orElse(null);
+        usersOrdersRepository.deleteById(1L);
+        UsersOrders deletedUsersOrders = usersOrdersRepository.findById(1L).orElse(null);
 
         //Then
         assertNull(deletedUsersOrders);

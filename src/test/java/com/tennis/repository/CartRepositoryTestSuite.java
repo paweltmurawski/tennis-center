@@ -25,7 +25,7 @@ public class CartRepositoryTestSuite {
     @DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
     public void testCreateCartRepository() {
         //Given
-        Cart cart = new Cart(1, "Babolat racket", new BigDecimal(600), 1, new ArrayList<>(), new TennisCenterUsers(1, "Paul M", "testMail@gmail.com", "Liliowa 8", "123456789", new ArrayList<>()));
+        Cart cart = new Cart(1L, "Babolat racket", new BigDecimal(600), 1, new ArrayList<>(), new TennisCenterUsers(1L, "Paul M", "testMail@gmail.com", "Liliowa 8", "123456789", new ArrayList<>()));
 
         //When
         cartRepository.save(cart);
@@ -39,11 +39,11 @@ public class CartRepositoryTestSuite {
     @DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
     public void testReadCartRepository() {
         //Given
-        Cart cart = new Cart(1, "Babolat racket", new BigDecimal(600), 1, new ArrayList<>(), new TennisCenterUsers(1, "Paul M", "testMail@gmail.com", "Liliowa 8", "123456789", new ArrayList<>()));
+        Cart cart = new Cart(1L, "Babolat racket", new BigDecimal(600), 1, new ArrayList<>(), new TennisCenterUsers(1L, "Paul M", "testMail@gmail.com", "Liliowa 8", "123456789", new ArrayList<>()));
 
         //When
         cartRepository.save(cart);
-        Cart readCart = cartRepository.findById(1).orElse(null);
+        Cart readCart = cartRepository.findById(1L).orElse(null);
 
         //Then
         assertEquals(cart, readCart);
@@ -53,13 +53,13 @@ public class CartRepositoryTestSuite {
     @DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
     public void testUpdateCartRepository() {
         //Given
-        Cart cart = new Cart(1, "Babolat racket", new BigDecimal(600), 1, new ArrayList<>(), new TennisCenterUsers(1, "Paul M", "testMail@gmail.com", "Liliowa 8", "123456789", new ArrayList<>()));
+        Cart cart = new Cart(1L, "Babolat racket", new BigDecimal(600), 1, new ArrayList<>(), new TennisCenterUsers(1L, "Paul M", "testMail@gmail.com", "Liliowa 8", "123456789", new ArrayList<>()));
         cartRepository.save(cart);
 
         //When
-        Cart updatedProductName = new Cart(1, "Head racket", new BigDecimal(600), 1, new ArrayList<>(), new TennisCenterUsers(1, "Paul M", "testMail@gmail.com", "Liliowa 8", "123456789", new ArrayList<>()));
+        Cart updatedProductName = new Cart(1L, "Head racket", new BigDecimal(600), 1, new ArrayList<>(), new TennisCenterUsers(1L, "Paul M", "testMail@gmail.com", "Liliowa 8", "123456789", new ArrayList<>()));
         cartRepository.save(updatedProductName);
-        Cart updatedCart = cartRepository.findById(1).orElse(null);
+        Cart updatedCart = cartRepository.findById(1L).orElse(null);
 
         //Then
         assertEquals(updatedProductName, updatedCart);
@@ -69,12 +69,12 @@ public class CartRepositoryTestSuite {
     @DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
     public void testDeleteCartRepository() {
         //Given
-        Cart cart = new Cart(1, "Babolat racket", new BigDecimal(600), 1, new ArrayList<>(), new TennisCenterUsers(1, "Paul M", "testMail@gmail.com", "Liliowa 8", "123456789", new ArrayList<>()));
+        Cart cart = new Cart(1L, "Babolat racket", new BigDecimal(600), 1, new ArrayList<>(), new TennisCenterUsers(1L, "Paul M", "testMail@gmail.com", "Liliowa 8", "123456789", new ArrayList<>()));
         cartRepository.save(cart);
 
         //When
-        cartRepository.deleteById(1);
-        Cart deletedCart = cartRepository.findById(1).orElse(null);
+        cartRepository.deleteById(1L);
+        Cart deletedCart = cartRepository.findById(1L).orElse(null);
 
         //Then
         assertNull(deletedCart);

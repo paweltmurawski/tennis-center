@@ -9,6 +9,7 @@ import java.util.List;
 
 @Transactional
 @Repository
-public interface UsersOrdersRepository extends CrudRepository<UsersOrders, Integer> {
+public interface UsersOrdersRepository extends CrudRepository<UsersOrders, Long> {
+    @Override
     List<UsersOrders> findAll();
 }
