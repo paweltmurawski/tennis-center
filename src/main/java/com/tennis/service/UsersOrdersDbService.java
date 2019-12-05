@@ -17,7 +17,7 @@ public class UsersOrdersDbService {
         return usersOrdersRepository.findAll();
     }
 
-    public Optional<UsersOrders> getUserOrder(final Long id) {
+    public Optional<UsersOrders> getUserOrderById(final Long id) {
         return usersOrdersRepository.findById(id);
     }
 
