@@ -11,8 +11,7 @@ import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name= "TENNIS_PRODUCTS")
+@Entity(name= "TENNIS_PRODUCTS")
 public class TennisProducts {
     private Long id;
     private String productName;

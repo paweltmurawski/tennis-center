@@ -10,8 +10,7 @@ import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "TENNIS_CENTER_USERS")
+@Entity(name = "TENNIS_CENTER_USERS")
 public class TennisCenterUsers {
     private Long id;
     private String username;

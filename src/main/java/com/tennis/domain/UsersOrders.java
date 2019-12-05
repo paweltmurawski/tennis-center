@@ -11,8 +11,7 @@ import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name= "USERS_ORDERS")
+@Entity(name= "USERS_ORDERS")
 public class UsersOrders {
     private Long id;
     private LocalDate orderDate;
