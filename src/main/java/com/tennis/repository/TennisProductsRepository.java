@@ -21,5 +21,4 @@ public interface TennisProductsRepository extends CrudRepository<TennisProducts,
 
     @Override
     void deleteById(Long id);
-
 }
