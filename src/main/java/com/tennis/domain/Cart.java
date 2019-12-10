@@ -21,14 +21,9 @@ public class Cart {
     @Column(name = "ID", unique = true)
     private Long id;
 
-    @Column(name = "PRODUCT_NAME")
-    private String productName;
-
-    @Column(name = "PRODUCT_PRICE")
-    private BigDecimal productPrice;
-
-    @Column(name = "PRODUCT_QUANTITY")
-    private Integer productQuantity;
+    @Column(name = "PAYMENT")
+    @Enumerated(EnumType.STRING)
+    private Payment payment;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
