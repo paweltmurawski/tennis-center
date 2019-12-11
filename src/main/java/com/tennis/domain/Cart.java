@@ -25,9 +25,9 @@ public class Cart {
     @Enumerated(EnumType.STRING)
     private Payment payment;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(
-            name = "JOIN_CART_PRODUCTS",
+            name = "JOIN_PRODUCTS_CARTS",
             joinColumns = {@JoinColumn(name = "CART_ID", referencedColumnName = "CART_ID")},
             inverseJoinColumns = {@JoinColumn(name = "TENNIS_PRODUCTS_ID", referencedColumnName = "TENNIS_PRODUCTS_ID")}
     )
