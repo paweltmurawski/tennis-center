@@ -1,5 +1,6 @@
 package com.tennis.dto;
 
+import com.tennis.domain.Payment;
 import com.tennis.domain.TennisCenterUsers;
 import com.tennis.domain.TennisProducts;
 import lombok.AllArgsConstructor;
@@ -15,9 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 public class CartDto {
     private Long id;
-    private String productName;
-    private BigDecimal productPrice;
-    private Integer productQuantity;
+    private Payment payment;
     private List<TennisProducts> tennisProducts = new ArrayList<>();
     private TennisCenterUsers tennisCenterUsers;
 }

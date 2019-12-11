@@ -12,9 +12,7 @@ public class CartMapper {
     public Cart mapToCart(final CartDto cartDto) {
         return new Cart(
                 cartDto.getId(),
-                cartDto.getProductName(),
-                cartDto.getProductPrice(),
-                cartDto.getProductQuantity(),
+                cartDto.getPayment(),
                 cartDto.getTennisProducts(),
                 cartDto.getTennisCenterUsers()
         );
@@ -23,9 +21,7 @@ public class CartMapper {
     public CartDto mapToCartDto(final Cart cart) {
         return new CartDto(
                 cart.getId(),
-                cart.getProductName(),
-                cart.getProductPrice(),
-                cart.getProductQuantity(),
+                cart.getPayment(),
                 cart.getTennisProducts(),
                 cart.getTennisCenterUsers()
         );
@@ -33,7 +29,7 @@ public class CartMapper {
 
     public List<CartDto> mapToCartDtoList(final List<Cart> cartList) {
         return cartList.stream()
-                .map(t -> new CartDto(t.getId(), t.getProductName(), t.getProductPrice(), t.getProductQuantity(), t.getTennisProducts(), t.getTennisCenterUsers()))
+                .map(t -> new CartDto(t.getId(), t.getPayment(), t.getTennisProducts(), t.getTennisCenterUsers()))
                 .collect(Collectors.toList());
     }
 }
