@@ -19,7 +19,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
-class ExchangeRatesClientTest {
+public class ExchangeRatesClientTest {
     @InjectMocks
     private ExchangeRatesClient exchangeRatesClient;
     @Mock
@@ -49,5 +49,4 @@ class ExchangeRatesClientTest {
         assertEquals(3.652, fetchedExchangeRates.get(0).getRate().getEur());
         assertEquals(4.034, fetchedExchangeRates.get(0).getRate().getUsd());
     }
-
 }
