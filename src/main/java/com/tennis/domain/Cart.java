@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,8 +27,8 @@ public class Cart {
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(
             name = "JOIN_PRODUCTS_CARTS",
-            joinColumns = {@JoinColumn(name = "CART_ID", referencedColumnName = "CART_ID")},
-            inverseJoinColumns = {@JoinColumn(name = "TENNIS_PRODUCTS_ID", referencedColumnName = "TENNIS_PRODUCTS_ID")}
+            joinColumns = {@JoinColumn(name = "CART_ID", referencedColumnName = "ID")},
+            inverseJoinColumns = {@JoinColumn(name = "TENNIS_PRODUCTS_ID", referencedColumnName = "ID")}
     )
     private List<TennisProducts> tennisProducts = new ArrayList<>();
 

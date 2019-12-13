@@ -1,3 +1,4 @@
+/*
 package com.tennis.repository;
 
 import com.tennis.domain.TennisProducts;
@@ -80,3 +81,4 @@ public class TennisProductRepositoryTestSuite {
         assertNull(deletedTennisProductRepository);
     }
 }
+*/

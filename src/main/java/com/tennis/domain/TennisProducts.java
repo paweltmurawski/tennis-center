@@ -33,8 +33,8 @@ public class TennisProducts {
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(
             name = "JOIN_ORDERS_PRODUCTS",
-            joinColumns = {@JoinColumn(name = "TENNIS_PRODUCT_ID", referencedColumnName = "TENNIS_PRODUCT_ID")},
-            inverseJoinColumns = {@JoinColumn(name = "USERS_ORDERS_ID", referencedColumnName = "USERS_ORDER_ID")}
+            joinColumns = {@JoinColumn(name = "TENNIS_PRODUCT_ID",referencedColumnName = "ID")},
+            inverseJoinColumns = {@JoinColumn(name = "USERS_ORDERS_ID", referencedColumnName = "ID")}
     )
     private List<UsersOrders> usersOrders = new ArrayList<>();
 

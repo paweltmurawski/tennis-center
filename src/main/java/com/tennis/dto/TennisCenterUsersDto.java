@@ -2,13 +2,14 @@ package com.tennis.dto;
 
 import com.tennis.domain.UsersOrders;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class TennisCenterUsersDto {
@@ -17,5 +18,5 @@ public class TennisCenterUsersDto {
     private String email;
     private String address;
     private String phoneNumber;
-    private List<UsersOrders> usersOrders = new ArrayList<>();
+    private List<UsersOrders> usersOrders;
 }

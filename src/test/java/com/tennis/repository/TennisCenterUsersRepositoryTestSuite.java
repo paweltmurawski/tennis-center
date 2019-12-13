@@ -1,3 +1,4 @@
+/*
 package com.tennis.repository;
 
 import com.tennis.domain.TennisCenterUsers;
@@ -78,3 +79,4 @@ public class TennisCenterUsersRepositoryTestSuite {
         assertNull(deletedTennisCenterUsers);
     }
 }
+*/
