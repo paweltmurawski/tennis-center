@@ -11,10 +11,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ExchangeRatesDto {
-    @JsonProperty("base")
-    private String base;
-    @JsonProperty("date")
-    private String date;
     @JsonProperty("rates")
     private Rates rate;
 }
