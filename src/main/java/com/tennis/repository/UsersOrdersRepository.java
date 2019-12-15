@@ -22,4 +22,7 @@ public interface UsersOrdersRepository extends CrudRepository<UsersOrders, Long>
 
     @Override
     void deleteById(Long id);
+
+    @Override
+    long count();
 }
