@@ -1,5 +1,6 @@
 package com.tennis.config;
 
+import com.tennis.utils.UserSatisfactionQuestionnaire;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -14,4 +15,5 @@ public class CoreConfiguration implements WebMvcConfigurer {
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
+
 }
