@@ -3,7 +3,7 @@ package com.tennis.utils;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class UserSatisfactionQuestionnaire {
+public class UserSatisfactionQuestionnaire {
     private String username;
     private int rating;
     private List<String> improvementSuggestions;
